@@ -1,0 +1,274 @@
+@border-color : #AAAAAA;
+
+@lighten-value : 20%;
+
+@color-white-1	: #F0F0F0;
+@color-white-2	: #EEEEEE;
+@color-grey-1	: #AAAAAA;
+@color-grey-2	: #555555;
+
+@color-ui-bg		: #424242;
+@color-ui-border1 	: #555;
+@color-ui-border2 	: #222;
+@color-ui-text1 	: #AAA;
+@color-menu-bg		: #282828;
+@color-textarea-bg	: #363636;
+@color-preview-bg	: @color-white-1;
+
+@default-font-family : Helvetica, Arial, sans-serif;
+
+@import "../../common/css/normalize.less";
+
+// General Style
+
+body {
+	background		: @color-white-1;
+	color			: @color-grey-2;
+	font-family		: @default-font-family;
+	font-size		: small;
+	font-style		: normal;
+	font-weight		: normal;
+	letter-spacing	: normal;
+	line-height		: 1.5em;
+}
+
+a {
+	font-style		: normal;
+	letter-spacing	: normal;
+	line-height		: 1.5em;
+	text-decoration	: none;
+	color			: @color-grey-2;
+}
+
+a:hover {
+	color: lighten(@color-grey-2, @lighten-value);
+}
+
+a img {
+	border-width	: 0;
+}
+
+ol {
+	list-style-type : decimal;
+}
+
+ul {
+	list-style-type : disc;
+}
+
+h1 { font-size: 2em;	line-height: 2em/1.5em; }
+h2 { font-size: 1.5em;	line-height: 1.5em/1.5em; }
+h3 { font-size: 1.25em;	line-height: 1.25em/1.5em; }
+h4 { font-size: 1em; 	line-height: 1em/1.5em; }
+h5 { font-size: 0.75em; line-height: 0.75em/1.5em; }
+h6 { font-size: 0.5em; 	line-height: 0.5em/1.5em; }
+h1,h2,h3,h4,h5,h6 {
+	text-transform: capitalize;
+}
+
+table {
+	margin: 1em auto;
+}
+
+th,td {
+	border: 1px solid @border-color;
+	text-align : center;
+	min-width: 50px;
+	padding : .2em;
+}
+
+th {
+	font-weight: bold;
+}
+
+// medit UI
+
+.hidden {
+	display: none;
+}
+
+input[type="text"] {
+
+	width 	: 90px;
+	@media (min-width:720px) {
+		width : 200px;
+	}
+
+	height			: 20px;
+	background		: @color-ui-bg;
+	border			: 1px solid @color-ui-border2;
+	color			: @color-ui-text1;
+	border-radius	: 4px;
+	padding-left	: 5px;
+	padding-right	: 5px;
+	outline			: none;
+}
+
+button {
+	height			: 25px;
+	width			: 60px;
+	background		: @color-ui-bg;
+	border			: 1px solid @color-ui-border2;
+	border-top		: 1px solid @color-ui-border1;
+	border-left		: 1px solid @color-ui-border1;
+	color			: #aaa;
+	border-radius	: 4px;
+	font-size		: 10px;
+}
+
+button:hover {
+	background: lighten(@color-ui-bg,2%);
+}
+
+button:active {
+	background	: darken(@color-ui-bg,2%);
+	border		: 1px solid @color-ui-border1;
+	border-top	: 1px solid @color-ui-border2;
+	border-left	: 1px solid @color-ui-border2;
+}
+
+#menu {
+	position: absolute;
+	left: 0px; right: 0px; top: 0px; bottom: 45px;
+
+	padding			: 10px;
+	background-color: @color-menu-bg;
+}
+
+
+#db-menu {
+	#db-username {
+		display: none;
+
+		@media (min-width:720px) {
+			display: inline;
+		}
+
+		float: right;
+	}
+}
+
+#view {
+	position: absolute;
+	left: 0px; right: 0px; top: 45px; bottom: 0px;
+
+	overflow: auto;
+}
+
+#message-block {
+	position	: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+
+	outline			: none;
+	resize 			: none;
+	padding 		: 1em;
+	margin			: 0;
+	border			: 0;
+	background-color: @color-textarea-bg;
+	color			: @color-ui-text1;
+	font-size		: 36pt;
+	line-height		: 42pt;
+	text-align		: center;
+	z-index			: 10;
+}
+
+#edit-wraper {
+	position: absolute;
+	left: 0px; right: 0px; top: 0px; bottom: 0px;
+	padding:	1em;
+	padding-right:	5px;
+	background-color: @color-textarea-bg;
+}
+
+#edit-textarea {
+	width			: 100%;
+	height			: 100%;
+	outline			: none;
+	resize			: none;
+	padding			: 0;
+	margin			: 0;
+	border			: 0;
+	background-color: @color-textarea-bg;
+	color			: @color-ui-text1;
+	font			: normal 18px/25px Menlo, Consolas, "Courier New", monospace;
+}
+
+#preview-block {
+	background-color: @color-preview-bg;
+	width			: 100%;
+	height			: 100%;
+	overflow		: auto;
+	article {
+		margin: 0 auto;
+		padding: 1em;
+		@media (min-width:720px) {
+			padding			: 1em 2em;	
+			min-height		: 400px;
+			width			: 720px;
+		}
+
+		font-size		: small;
+		font-weight		: 300;
+
+		strong {
+			font-weight 	: 400;
+		}
+
+		a {
+			font-weight		: 400;
+		}
+
+		p {
+			margin: 1.5em 0;	
+		}
+		
+		img {
+			display 	: block;
+			margin		: .5em auto;
+			padding		: .5em;
+			border		: 1px solid #ddd;
+			max-width	: 100%;
+			max-height	: 100%;
+		}
+
+		code {
+			font-family	: Courier, monospace;
+		}
+
+		pre {
+			font-family	: Courier, monospace;
+			max-width	: 100%;
+			max-height	: 400px;
+			overflow-y	: auto;
+			overflow-x	: auto;
+			background	: @color-white-2;
+			border		: 1px solid @color-grey-1;
+			padding		: 0.5em;
+			font-size	: .85em;
+		}
+
+		header {
+			font-size		: 2.5em;
+			font-weight		: normal;
+			line-height		: 1.5em;
+			text-align		: left;
+		}
+
+		div.seperator {	
+			border-bottom	: 1px dotted #ccc;
+		}
+	}
+
+	.gist-holder {
+		table {
+			margin: 0;
+			border: 0;
+		}
+
+		td {
+			text-align: left;
+		}
+		@import "../common/css/gist.less";
+	}
+} 
+
