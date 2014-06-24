@@ -73,13 +73,10 @@ ui.preview_block = ikd.create_ui("preview-block", function ()
 	{
 		var reply = function (content) {
 			var article = document.createElement("article");
-			article.innerHTML = blog.process_content(content);
+			article.innerHTML = marked(content);
 
 			self.element.innerHTML = "";
 			self.element.appendChild(article);
-
-			blog.gist_post_process(article);
-			blog.date_post_process(article);
 		}
 
 		var msg = {
@@ -100,10 +97,6 @@ ui.preview_block = ikd.create_ui("preview-block", function ()
 
 	ikd.subscribe(self.event_handler, ikd.app_event_channel);
 
-	// For displaying gist in preview mode
-	document.write = function() {
-		blog.gist_callback(arguments[0]);
-	};	
 });
 
 ui.mode_button = ikd.create_ui("mode-button", function () 

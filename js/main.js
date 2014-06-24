@@ -1,12 +1,10 @@
 function load ()
 {
 	var lib = ["http://cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.9.2/dropbox.min.js",
-			   "marked.js",
-			   "blog.js",
-			   "../../medit/js/ui.js"];
+			   "http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js",
+			   "js/ui.js"];
 
 	ikd.app_event_channel = "medit";
-	ikd.load_path = "../common/js/";
 	ikd.load(lib, main);
 }
 
